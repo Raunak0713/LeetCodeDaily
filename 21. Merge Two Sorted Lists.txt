@@ -1,0 +1,36 @@
+*** Naive Solution ***
+
+public class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        ListNode temp1 = list1;
+        ListNode temp2 = list2;
+
+        // Collect values from both lists into the ArrayList
+        while (temp1 != null) {
+            ans.add(temp1.val);
+            temp1 = temp1.next;
+        }
+        while (temp2 != null) {
+            ans.add(temp2.val);
+            temp2 = temp2.next;
+        }
+
+        // Sort the ArrayList
+        Collections.sort(ans);
+
+        // Create a new linked list from the sorted ArrayList
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        for (int value : ans) {
+            current.next = new ListNode(value);
+            current = current.next;
+        }
+
+        return dummy.next; // Skip the dummy head node
+    }
+}
+
+
+
+
