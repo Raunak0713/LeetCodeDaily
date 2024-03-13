@@ -1,0 +1,15 @@
+class Solution {
+    public int pivotInteger(int n) {
+        for(int i=1; i<=n; i++){
+            if(fs(1,i) == fs(i,n)) return i;
+        }
+        return -1;
+    }
+    public int fs(int i, int j){
+        int c = 0;
+        for(int a=i; a<=j; a++){
+            c+=a;
+        }
+        return c;
+    }
+}
